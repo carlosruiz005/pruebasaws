@@ -1,5 +1,5 @@
 codebuild_cache_bucket_name="apprunner-cache-yyyymmdd-identifier"
-aws_region="us-east-1"
+aws_region="us-east-2"
 stack="apprunner-workshop"
 aws_ecr="pruebas"
 aws_profile="default"
