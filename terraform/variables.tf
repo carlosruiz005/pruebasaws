@@ -54,34 +54,7 @@ variable "min_size" {
   default     = "2"
 }
 
-variable "db_instance_type" {
-  description = "RDS instance type"
-  default     = "db.t3.medium"
-}
 
-variable "db_name" {
-  description = "RDS DB name"
-  default     = "pruebas"
-}
-
-variable "db_user" {
-  description = "RDS DB username"
-  default     = "root"
-}
-
-variable "db_profile" {
-  description = "RDS Profile"
-  default     = "mysql"
-}
-
-variable "db_initialize_mode" {
-  description = "RDS initialize"
-  default     = "always"
-}
-variable "ssm_parameter_store_name" {
-  description = "RDS DB Password Parameter Store name"
-  default     = "always"
-}
 # Source repo name and branch
 
 variable "source_repo_name" {

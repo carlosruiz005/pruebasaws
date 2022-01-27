@@ -13,11 +13,7 @@ resource "aws_apprunner_service" "service" {
       image_configuration {
         port = var.container_port
         runtime_environment_variables = {
-          "AWS_REGION" : "${var.aws_region}",
-          "spring.datasource.username" : "${var.db_user}",
-          "spring.datasource.initialization-mode" : var.db_initialize_mode,
-          "spring.profiles.active" : var.db_profile,
-          "spring.datasource.url" : "jdbc:mysql://${aws_db_instance.db.address}/${var.db_name}"
+          "AWS_REGION" : "${var.aws_region}"
         }
       }
       image_identifier      = "${data.aws_ecr_repository.image_repo.repository_url}:latest"
@@ -27,7 +23,7 @@ resource "aws_apprunner_service" "service" {
   instance_configuration {
     instance_role_arn = aws_iam_role.apprunner-instance-role.arn
   }
-  depends_on = [aws_iam_role.apprunner-service-role, aws_db_instance.db, aws_route_table.private-route-table, null_resource.pruebas_springboot]
+  depends_on = [aws_iam_role.apprunner-service-role, aws_route_table.private-route-table, null_resource.pruebas_springboot]
 }
 
 output "apprunner_service_url" {
